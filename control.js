@@ -1,5 +1,6 @@
 $(document).ready(function() {
   // Add spans to the <p> elements
+  addCSS();
   makeSpans();
 
   // The idea here is that if you click an element, its text opacity goes to
@@ -15,6 +16,10 @@ $(document).ready(function() {
   });
 
 });
+
+function addCSS() {
+  $("head").append("<style>.hideWord {opacity:0.0}</style>");
+}
 
 // Takes a paragraph and puts spans in each of them. Credit for this idea
 // goes to Daniel Tonon (http://stackoverflow.com/a/20850348)
