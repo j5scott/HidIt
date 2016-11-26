@@ -1,3 +1,4 @@
-.blend {
+/* This makes text become 100% opaque */
+.hideWord {
   opacity: 0.0;
 }
