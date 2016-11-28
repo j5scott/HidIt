@@ -9,6 +9,6 @@ How it Works: Javascript function takes every word separated by a space within
               word separated by spaces.
 
 Issues:   No way to turn this functionality off when hitting the plugin icon.
-          Links and other embedded elements are destroyed when spans are
-          created. Will continue to find ways to get this to work with other
-          tags.
+          Links and other embedded text elements, as well as some navigation
+          bars, are destroyed when spans are created. Will continue to find
+          ways to get this to work with other tags.
