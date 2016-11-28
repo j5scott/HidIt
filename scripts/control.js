@@ -1,25 +1,37 @@
+var on = true;
+
 $(document).ready(function() {
   // Add spans to the <p> elements
-  addCSS();
   makeSpans();
 
   // The idea here is that if you click an element, its text opacity goes to
   // 0.0, making it totally transparent. But if you click it again, it goes
   // back to normal
   $("span").on("click", function() {
-    if($(this).hasClass("hideWord")) {
-      $(this).removeClass("hideWord");
-    } else {
-      $(this).addClass("hideWord");
+    if (on) {
+      if ($(this).hasClass("hideWord")) {
+        $(this).removeClass("hideWord hoverOver");
+      } else {
+        $(this).addClass("hideWord");
+      }
     }
 
   });
 
-});
+  // This allows the user to see a word if it's hidden by hovering the
+  // mouse over it
+  $("span").hover(
+    function() {
+      if ($(this).hasClass("hideWord")) {
+        $(this).addClass("hoverOver");
+      }
+    }, function() {
+      $(this).removeClass("hoverOver");
+    }
 
-function addCSS() {
-  $("head").append("<style>.hideWord {opacity:0.0}</style>");
-}
+  );
+
+});
 
 // Takes a paragraph and puts spans in each of them. Credit for this idea
 // goes to Daniel Tonon (http://stackoverflow.com/a/20850348)
