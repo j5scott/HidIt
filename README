@@ -1,13 +1,14 @@
-HidIt v. 0.1.1
+HidIt v. 0.2
 
 Purpose:  Allows the user to click on a word within a <p> element in HTML and
           make that word invisible. Secondarily, if the user hovers the mouse
           over that word while it's invisible, they can see the word.
 
 How it Works: Javascript function takes every word separated by a space within
-              any <p> element and creates a <span> for each word separated by
-              spaces.
+              any <h1-6>, <p>, or <li> element and creates a <span> for each
+              word separated by spaces.
 
 Issues:   No way to turn this functionality off when hitting the plugin icon.
           Links and other embedded elements are destroyed when spans are
-          created.
+          created. Will continue to find ways to get this to work with other
+          tags.

@@ -3,6 +3,7 @@
 }
 
 .hoverOver {
-  opacity: 0.8;
-  color: red;
+  color: #800000;
+  opacity: 1.0;
+  background-color: transparent;
 }

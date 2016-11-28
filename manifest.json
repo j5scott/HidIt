@@ -1,7 +1,7 @@
 {
 
   "name": "HidIt",
-  "version": "0.1.1",
+  "version": "0.2",
   "manifest_version": 2,
   "description": "Allows words on page to disappear when clicked. If a word has disappeared, the user can hover the mouse over the word to make it visible.",
   "icons": {
@@ -10,19 +10,15 @@
     "48": "data/ghost.png",
     "128": "data/ghost.png"
   },
-  "background": {
-    "scripts": ["scripts/background.js"]
-  },
   "browser_action": {
     "name": "Manipulate DOM",
     "icons": ["data/ghost.png"],
     "default_icon": "data/ghost.png"
   },
   "content_scripts": [ {
-    "js": [ "scripts/jquery-3.1.1.min.js", "scripts/control.js" ],
+    "js": [ "scripts/jquery-3.1.1.min.js", "scripts/content.js" ],
     "css": [ "styles/styles.css" ],
-    "matches": [ "http://*/*", "https://*/*"],
-    "run_at": "document_start"
+    "matches": [ "http://*/*", "https://*/*"]
   }]
 
 }

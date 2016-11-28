@@ -1,5 +1,3 @@
-var on = true;
-
 $(document).ready(function() {
   // Add spans to the <p> elements
   makeSpans();
@@ -8,18 +6,16 @@ $(document).ready(function() {
   // 0.0, making it totally transparent. But if you click it again, it goes
   // back to normal
   $("span").on("click", function() {
-    if (on) {
-      if ($(this).hasClass("hideWord")) {
-        $(this).removeClass("hideWord hoverOver");
-      } else {
-        $(this).addClass("hideWord");
-      }
+    if ($(this).hasClass("hideWord")) {
+      $(this).removeClass("hideWord hoverOver");
+    } else {
+      $(this).addClass("hideWord");
     }
 
   });
 
   // This allows the user to see a word if it's hidden by hovering the
-  // mouse over it
+  // mouse over it, text will turn to dark red and will no longer be opaque
   $("span").hover(
     function() {
       if ($(this).hasClass("hideWord")) {
@@ -36,15 +32,15 @@ $(document).ready(function() {
 // Takes a paragraph and puts spans in each of them. Credit for this idea
 // goes to Daniel Tonon (http://stackoverflow.com/a/20850348)
 function makeSpans() {
-  // For each <p> element
-  $("p").each(function() {
+  // For each element
+  $("h1, h2, h3, h4, h5, h6, p, li").each(function() {
     // take all the words and put them in an array
     var words = $(this).text().split(" ");
 
-    // empty the original <p> element
+    // empty the original element
     $(this).empty();
 
-    // then append every word in the array into the <p>, except this time
+    // then append every word in the array into the element, except this time
     // wrap them with <span>...</span>
     for (var i = 0; i < words.length; i++) {
       $(this).append("<span>" + words[i] + " </span>");
