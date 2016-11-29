@@ -33,19 +33,63 @@ $(document).ready(function() {
 // goes to Daniel Tonon (http://stackoverflow.com/a/20850348)
 function makeSpans() {
   // For each element
-  $("h1, h2, h3, h4, h5, h6, p, li").each(function() {
-    // take all the words and put them in an array
-    var words = $(this).text().split(" ");
+  $("h1, h2, h3, h4, h5, h6, p, li, td").each(function() {
+    // take all the HTML and put the properly separated values in an array
+    var words = splitText($(this).html());
 
     // empty the original element
     $(this).empty();
 
-    // then append every word in the array into the element, except this time
-    // wrap them with <span>...</span>
+    // then append every word in the array into a string
+    var newStr = "";
     for (var i = 0; i < words.length; i++) {
-      $(this).append("<span>" + words[i] + " </span>");
+      newStr += words[i];
     }
 
+    // Make this string the new HTML of the page
+    $(this).html(newStr);
   });
 
+}
+
+// Splits the HTML text appropriately for our purposes
+function splitText(text) {
+  var strArr = []; // string array
+  var word = ""; // this is a word
+  for (var i = 0; i < text.length; i++) {
+    // if there's a carot, that's the sign of a new element tag, which we
+    // want to preserve
+    if (text.charAt(i) === "<") {
+      strArr.push("<span>" + word + "</span>");
+      word = "<"; // signals start of tag
+      var nests = 1; // we want to keep track of nested tags
+      do {
+        i++;
+        if (text.charAt(i) === "<") {
+          nests++;
+        }
+        if (text.charAt(i) === ">") {
+          nests--;
+        }
+        word += text.charAt(i);
+      } while (nests > 0);  // while nests are not equal to zero, we don't
+                            // want to add spans
+      console.log(word);
+      strArr.push(word); // push the new word to the array
+      word = ""; // clear the word value
+    // If the chars are not alphanumeric, we don't want to make spans
+    } else if (text.charAt(i) != " " && text.charAt(i) != ".") {
+      word += text.charAt(i);
+    // If, however, the chars ARE alphanumeric, we want to wrap the "word"
+    // with spans and push the wrapped content onto the array
+    } else {
+      console.log(word);
+      strArr.push("<span>" + word + "</span>");
+      word = "";
+      strArr.push("" + text.charAt(i));
+    }
+  }
+
+  // return the completed array
+  return strArr;
 }
