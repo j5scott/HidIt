@@ -17,3 +17,19 @@
 .whiteBG{
   background-color: white !important;
 }
+
+.imageHide{
+  opacity: 0.02 !important;
+}
+
+.imageReveal{
+  opacity: 1.0 !important;
+}
+
+.imageReveal:parent{
+  background-color: white !important;
+}
+
+.imageHide:parent{
+  background-color: blue !important;
+}

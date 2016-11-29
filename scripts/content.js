@@ -8,6 +8,8 @@ $(document).ready(function() {
   // The idea here is that if you click an element, its text opacity goes to
   // 0.0, making it totally transparent. But if you click it again, it goes
   // back to normal
+  
+  
   $("span").on("click", function() {
     if ($(this).hasClass("hideWord")) {
       $(this).removeClass("hideWord hoverOver");
@@ -35,6 +37,29 @@ $(document).ready(function() {
     }
 
   );
+  
+  $("img").on("click", function(){
+    if($(this).hasClass("imageHide")){
+      $(this).removeClass("imageHide");
+      $(this).addClass("imageReveal");
+    }
+    else{
+      $(this).addClass("imageHide");
+    }
+  });
+  
+  $("img").hover(
+    function() {
+      if ($(this).hasClass("imageHide")) {
+        $(this).removeClass("imageHide");
+        $(this).addClass("imageReveal");
+      }
+    }, function() {
+      $(this).removeClass("imageReveal");
+      $(this).addClass("imageHide");
+    }
+
+  );
 
 });
 
@@ -42,7 +67,7 @@ $(document).ready(function() {
 // goes to Daniel Tonon (http://stackoverflow.com/a/20850348)
 function makeSpans() {
   // For each element
-  $("h1, h2, h3, h4, h5, h6, p, li, td").each(function() {
+  $("h1, h2, h3, h4, h5, h6, p, li, td, img").each(function() {
     // take all the HTML and put the properly separated values in an array
     var words = splitText($(this).html());
 
