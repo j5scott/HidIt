@@ -51,12 +51,10 @@ $(document).ready(function() {
   $("img").hover(
     function() {
       if ($(this).hasClass("imageHide")) {
-        $(this).removeClass("imageHide");
         $(this).addClass("imageReveal");
       }
     }, function() {
       $(this).removeClass("imageReveal");
-      $(this).addClass("imageHide");
     }
 
   );
