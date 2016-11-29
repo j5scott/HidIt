@@ -1,17 +1,26 @@
 $(document).ready(function() {
   // Add spans to the <p> elements
   makeSpans();
-
+  
+  //make background white 
+  $('BODY').addClass("whiteBG");
+  
   // The idea here is that if you click an element, its text opacity goes to
   // 0.0, making it totally transparent. But if you click it again, it goes
   // back to normal
   $("span").on("click", function() {
     if ($(this).hasClass("hideWord")) {
       $(this).removeClass("hideWord hoverOver");
-    } else {
-      $(this).addClass("hideWord");
+      $(this).addClass("hideWord2");
+    } 
+    else if($(this).hasClass("hideWord2")) {
+      $(this).removeClass("hideWord2");
     }
-
+    else {
+      $(this).addClass("hideWord");
+      
+    }
+    //make background white 
   });
 
   // This allows the user to see a word if it's hidden by hovering the

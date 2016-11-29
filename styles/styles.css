@@ -1,9 +1,19 @@
 .hideWord {
-  opacity: 0.0;
+  color: blue;
+  background-color: blue;
+}
+
+.hideWord2{
+  color:white;
+  background-color:white;
 }
 
 .hoverOver {
-  color: #800000;
+  color: red;
   opacity: 1.0;
-  background-color: transparent;
+  background-color: white;
+}
+
+.whiteBG{
+  background-color: white !important;
 }
