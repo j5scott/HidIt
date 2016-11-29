@@ -8,6 +8,11 @@ How it Works: Javascript function takes every word separated by a space within
               any <h1-6>, <p>, <li>, or <td> element and creates a <span> for
               each word separated by spaces or periods.
 
+How to Enable:  Go to Extensions in Chrome. Check the box that says "Developer
+                Mode". Then, click the button "Load unpacked extension". When
+                you update the plugin via GitHub, click "Reload (Ctrl + R)" or
+                press Ctrl + R.
+
 Issues:   No way to turn this functionality off when hitting the plugin icon.
           Links and other embedded text elements, as well as some navigation
           bars, are no longer destroyed, but spans are made inside them. the
